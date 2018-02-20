@@ -393,13 +393,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     }
 
     private void showDialog(){
-        if (mProgressBar != null)
-        mProgressBar.setVisibility(View.VISIBLE);
-
+        if (mProgressBar != null) {
+            mProgressBar.setVisibility(View.VISIBLE);
+        }
     }
 
     private void hideDialog(){
-        if(mProgressBar.getVisibility() == View.VISIBLE){
+        if(mProgressBar != null && mProgressBar.getVisibility() == View.VISIBLE){
             mProgressBar.setVisibility(View.INVISIBLE);
         }
     }
@@ -417,7 +417,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
                     Intent intent = new Intent(LoginActivity.this, LandingPageActivity.class);
                     startActivity(intent);
-                    finish();
                 }
                 else{
                     Log.d(TAG, "onAuthStateChanged: signed_out");
