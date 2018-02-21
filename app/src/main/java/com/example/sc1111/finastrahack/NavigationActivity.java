@@ -16,12 +16,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.FrameLayout;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    private UserData userData;
     public boolean isSecured = false;
+
+    private UserData userData;
     private Intent intent;
+    private Menu nav_menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +73,37 @@ public class NavigationActivity extends AppCompatActivity
         actionBarDrawerToggle.syncState();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        View headernav = navigationView.getHeaderView(0);
+        nav_menu = navigationView.getMenu();
+        TextView nameText = (TextView) headernav.findViewById(R.id.userDataName);
+        TextView emailText = (TextView) headernav.findViewById(R.id.userDataEmail);
+
+        if (isSecured) {
+            //TODO: Replace navbar header text with database variables
+            nameText.setText("temp name text");
+            emailText.setText("temp email text");
+            nav_menu.add(0, Menu.FIRST, Menu.FIRST, "Home").setIcon(R.drawable.ic_menu_home);
+            nav_menu.add(1, Menu.FIRST + 1, Menu.FIRST, "Loans").setIcon(R.drawable.ic_menu_loan);
+            nav_menu.add(2, Menu.FIRST + 2, Menu.FIRST, "Trends").setIcon(R.drawable.ic_menu_trends);
+            nav_menu.add(3, Menu.FIRST + 3, Menu.FIRST, "Contact Us").setIcon(R.drawable.ic_menu_mail);
+            nav_menu.add(4, Menu.FIRST + 4, Menu.FIRST, "Settings").setIcon(R.drawable.ic_menu_settings);
+        }
+        else {
+            nameText.setText("Login");
+            emailText.setText("");
+            nav_menu.add(0, Menu.FIRST, Menu.FIRST, "Trends").setIcon(R.drawable.ic_menu_trends);
+            nav_menu.add(1, Menu.FIRST + 1, Menu.FIRST, "Contact Us").setIcon(R.drawable.ic_menu_mail);
+            nav_menu.add(2, Menu.FIRST + 2, Menu.FIRST, "Settings").setIcon(R.drawable.ic_menu_settings);
+        }
+
+    }
+
+    public void onLoginClick(View v){
+        if (!isSecured){
+            intent = new Intent(NavigationActivity.this, LoginActivity.class);
+            navigate();
+        }
     }
 
     @Override
@@ -108,21 +144,37 @@ public class NavigationActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_home) {
-            intent = new Intent(NavigationActivity.this, LandingPageActivity.class);
-        } else if (id == R.id.nav_loan) {
-            intent = new Intent(NavigationActivity.this, LoanActivity.class);
-        } else if (id == R.id.nav_trends) {
-            intent = new Intent(NavigationActivity.this, burn_out.class);
-        } else if (id == R.id.nav_contactus) {
-            intent = new Intent(NavigationActivity.this, ContactUsActivity.class);
-        } else if (id == R.id.nav_settings) {
-            intent = new Intent(NavigationActivity.this, SettingsActivity.class);
+        if (isSecured) {
+            if (id == nav_menu.getItem(0).getItemId()) {
+                intent = new Intent(NavigationActivity.this, LandingPageActivity.class);
+            } else if (id == nav_menu.getItem(1).getItemId()) {
+                intent = new Intent(NavigationActivity.this, LoanActivity.class);
+            } else if (id == nav_menu.getItem(2).getItemId()) {
+                intent = new Intent(NavigationActivity.this, burn_out.class);
+            } else if (id == nav_menu.getItem(3).getItemId()) {
+                intent = new Intent(NavigationActivity.this, ContactUsActivity.class);
+            } else if (id == nav_menu.getItem(4).getItemId()) {
+                intent = new Intent(NavigationActivity.this, SettingsActivity.class);
+            }
+        }
+        else {
+            if (id == nav_menu.getItem(0).getItemId()) {
+                intent = new Intent(NavigationActivity.this, burn_out.class);
+            } else if (id == nav_menu.getItem(1).getItemId()) {
+                intent = new Intent(NavigationActivity.this, ContactUsActivity.class);
+            } else if (id == nav_menu.getItem(2).getItemId()) {
+                intent = new Intent(NavigationActivity.this, SettingsActivity.class);
+            }
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
 
+        navigate();
+        return true;
+    }
+
+    public void navigate(){
         if (intent != null){
             new CountDownTimer(100, 10) {
                 public void onFinish() {
@@ -135,6 +187,5 @@ public class NavigationActivity extends AppCompatActivity
                 }
             }.start();
         }
-        return true;
     }
 }
