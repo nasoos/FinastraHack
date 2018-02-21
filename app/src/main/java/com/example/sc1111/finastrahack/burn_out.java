@@ -29,6 +29,7 @@ public class burn_out extends NavigationActivity {
     GraphView graph;
     LineGraphSeries<DataPoint> xySeries = new LineGraphSeries<>();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference GraphRef;
 
 
     @Override
@@ -71,22 +72,37 @@ public class burn_out extends NavigationActivity {
                 String item = adapterView.getItemAtPosition(i).toString();
                 Toast.makeText(burn_out.this, item, Toast.LENGTH_SHORT).show();
                 Log.i("ITEM NAME", item.toString());
-                if(item.toString().equals("Art")){
-                    DatabaseReference artsGraphRef = database.getReference("artsGraph");
-
-                    artsGraphRef.addValueEventListener(new ValueEventListener() {
+                if (item.toString().equals("Art")) {
+                    GraphRef = database.getReference("artsGraph");
+                } else if(item.toString().equals("Engineering")){
+                    GraphRef = database.getReference("engineeringGraph");
+                }else if(item.toString().equals("Environment")){
+                    GraphRef = database.getReference("envGraph");
+                }else if(item.toString().equals("Health")){
+                    GraphRef = database.getReference("healthGraph");
+                }else if(item.toString().equals("Math")){
+                    GraphRef = database.getReference("mathGraph");
+                }else if(item.toString().equals("Science")){
+                    GraphRef = database.getReference("scienceGraph");
+                }else{
+                    GraphRef = database.getReference("artsGraph");
+                }
+                    graph = (GraphView) findViewById(R.id.graph);
+                    graph.removeAllSeries();
+                    xyValueArray = new ArrayList<>();
+                    xySeries = new LineGraphSeries<>();
+                    GraphRef.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             graphValue = dataSnapshot.getValue(String.class);
                             String[] number_list = graphValue.split(",");
 
-                            graph = (GraphView) findViewById(R.id.graph);
-                            xyValueArray = new ArrayList<>();
 
-                            for(int i = 0; i<number_list.length-1;i+=2){
+
+                            for (int i = 0; i < number_list.length - 1; i += 2) {
                                 double x = Double.parseDouble(number_list[i]);
-                                double y = Double.parseDouble(number_list[i+1]);
-                                xyValueArray.add(new XYValue(x,y));
+                                double y = Double.parseDouble(number_list[i + 1]);
+                                xyValueArray.add(new XYValue(x, y));
                             }
 
 
@@ -99,8 +115,10 @@ public class burn_out extends NavigationActivity {
                             Log.w("tag", "Failed to read value.", error.toException());
                         }
                     });
-                }
+
+
             }
+
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
