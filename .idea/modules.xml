@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-<<<<<<< HEAD
-=======
-      <module fileurl="file://C:\Users\tw2222\Documents\githubProj\finastrahack\FinastraHack.iml" filepath="C:\Users\tw2222\Documents\githubProj\finastrahack\FinastraHack.iml" />
->>>>>>> 0afbf8faa280e9723d8f521992012853b2d7ea80
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/finastrahack.iml" filepath="$PROJECT_DIR$/finastrahack.iml" />
     </modules>

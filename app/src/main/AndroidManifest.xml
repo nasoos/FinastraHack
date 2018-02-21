@@ -30,6 +30,10 @@
         <activity
             android:name=".LandingPageActivity"
             android:label="@string/title_activity_landing_page"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SignedInActivity"
+            android:label="@string/title_activity_signed_in"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
