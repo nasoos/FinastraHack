@@ -35,7 +35,6 @@ public class NavigationActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
@@ -85,16 +84,16 @@ public class NavigationActivity extends AppCompatActivity
             intent = new Intent(NavigationActivity.this, LandingPageActivity.class);
         } else if (id == R.id.nav_loan) {
             Log.d(TAG, "nav_loan NAV CLICK");
-            new Intent(NavigationActivity.this, LoanActivity.class);
+            intent = new Intent(NavigationActivity.this, LoanActivity.class);
         } else if (id == R.id.nav_trends) {
             Log.d(TAG, "nav_trends NAV CLICK");
-            new Intent(NavigationActivity.this, TrendsActivity.class);
+            intent = new Intent(NavigationActivity.this, TrendsActivity.class);
         } else if (id == R.id.nav_contactus) {
             Log.d(TAG, "nav_contactus NAV CLICK");
-            new Intent(NavigationActivity.this, ContactUsActivity.class);
+            intent = new Intent(NavigationActivity.this, ContactUsActivity.class);
         } else if (id == R.id.nav_settings) {
             Log.d(TAG, "nav_settings NAV CLICK");
-            new Intent(NavigationActivity.this, SettingsActivity.class);
+            intent = new Intent(NavigationActivity.this, SettingsActivity.class);
         }
 
         if (intent != null){
