@@ -26,10 +26,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".loanBurnOut"
-            android:exported="true" />
-        <activity android:name=".burn_out"></activity>
-        <activity
             android:name=".LandingPageActivity"
             android:label="@string/title_activity_landing_page"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -50,7 +46,7 @@
             android:label="@string/title_activity_loan"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".TrendsActivity"
+            android:name=".burn_out"
             android:label="@string/title_activity_trends"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>

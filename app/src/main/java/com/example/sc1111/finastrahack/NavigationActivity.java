@@ -2,10 +2,7 @@ package com.example.sc1111.finastrahack;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.util.Log;
-import android.view.View;
+import android.os.CountDownTimer;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,9 +14,8 @@ import android.view.MenuItem;
 
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
-    private static final String TAG = "NavigationActivity";
     private UserData userData;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,33 +72,34 @@ public class NavigationActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        Log.d(TAG, "ID: " + getString(id));
 
-        Intent intent = null;
         if (id == R.id.nav_home) {
-            Log.d(TAG, "nav_home NAV CLICK");
             intent = new Intent(NavigationActivity.this, LandingPageActivity.class);
         } else if (id == R.id.nav_loan) {
-            Log.d(TAG, "nav_loan NAV CLICK");
             intent = new Intent(NavigationActivity.this, LoanActivity.class);
         } else if (id == R.id.nav_trends) {
-            Log.d(TAG, "nav_trends NAV CLICK");
-            intent = new Intent(NavigationActivity.this, TrendsActivity.class);
+            intent = new Intent(NavigationActivity.this, burn_out.class);
         } else if (id == R.id.nav_contactus) {
-            Log.d(TAG, "nav_contactus NAV CLICK");
             intent = new Intent(NavigationActivity.this, ContactUsActivity.class);
         } else if (id == R.id.nav_settings) {
-            Log.d(TAG, "nav_settings NAV CLICK");
             intent = new Intent(NavigationActivity.this, SettingsActivity.class);
-        }
-
-        if (intent != null){
-            startActivity(intent);
-            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+
+        if (intent != null){
+            new CountDownTimer(100, 10) {
+                public void onFinish() {
+                    startActivity(intent);
+                    overridePendingTransition(0, 0);
+                    finish();
+                }
+                public void onTick(long millisUntilFinished) {
+                    // millisUntilFinished    The amount of time until finished.
+                }
+            }.start();
+        }
         return true;
     }
 }
