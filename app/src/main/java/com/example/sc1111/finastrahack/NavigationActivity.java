@@ -19,6 +19,7 @@ public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String TAG = "NavigationActivity";
+    private UserData userData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
