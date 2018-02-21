@@ -106,6 +106,7 @@ public class LoginActivity extends NavigationActivity implements LoaderCallbacks
 
         setupFirebaseAuth();
 
+
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
