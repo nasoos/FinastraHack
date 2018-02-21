@@ -50,6 +50,7 @@
                     android:fontFamily="sans-serif-condensed"
                     android:text=""
                     android:textAlignment="center"
+                    android:textColor="#fff"
                     android:textSize="45sp"
                     app:layout_constraintBottom_toTopOf="@+id/currentBalance_label"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -64,6 +65,7 @@
                     android:layout_marginTop="32dp"
                     android:text="CURRENT BALANCE"
                     android:textAlignment="center"
+                    android:textColor="#fff"
                     android:textStyle="italic"
                     app:layout_constraintBottom_toTopOf="@+id/textView8"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -78,6 +80,7 @@
                     android:layout_marginTop="23dp"
                     android:fontFamily="sans-serif-condensed"
                     android:textAlignment="center"
+                    android:textColor="#fff"
                     android:textSize="50sp"
                     app:layout_constraintBottom_toTopOf="@+id/btn-pay"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -90,9 +93,11 @@
                     android:id="@+id/btn-pay"
                     android:layout_width="378dp"
                     android:layout_height="104dp"
+                    android:background="#96AD3E"
                     android:fontFamily="sans-serif-condensed"
                     android:text="PAY LOAN"
                     android:textAlignment="center"
+                    android:textColor="#fff"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -109,10 +114,6 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header_navigation"
+        app:itemTextColor="#fff"
         app:menu="@menu/activity_navigation_drawer" />
-
-
 </android.support.v4.widget.DrawerLayout>
-
-
-<!-- -->

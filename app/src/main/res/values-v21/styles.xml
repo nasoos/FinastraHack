@@ -4,5 +4,11 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowBackground">@drawable/gradient</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="AppTheme.WhiteText">
+        <item name="android:textColor">@color/white</item>
     </style>
 </resources>

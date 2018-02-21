@@ -77,8 +77,8 @@ public class NavigationActivity extends AppCompatActivity
 
         if (isSecured) {
             //TODO: Replace navbar header text with database variables
-            nameText.setText("temp name text");
-            emailText.setText("temp email text");
+            nameText.setText("Jake");
+            emailText.setText("sid@thekid.com");
             nav_menu.add(0, Menu.FIRST, Menu.FIRST, "Home").setIcon(R.drawable.ic_menu_home);
             nav_menu.add(1, Menu.FIRST + 1, Menu.FIRST, "Trends").setIcon(R.drawable.ic_menu_trends);
             nav_menu.add(2, Menu.FIRST + 2, Menu.FIRST, "Contact Us").setIcon(R.drawable.ic_menu_mail);
@@ -114,24 +114,12 @@ public class NavigationActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.navigation, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+        return false;
     }
 
     @SuppressWarnings("StatementWithEmptyBody")

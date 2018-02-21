@@ -66,13 +66,7 @@ public class SignedInActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.optionSignOut:
-                signOut();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
+        return false;
     }
 
     private void signOut(){
