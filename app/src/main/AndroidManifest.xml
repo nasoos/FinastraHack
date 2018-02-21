@@ -28,8 +28,31 @@
         <activity
             android:name=".loanBurnOut"
             android:exported="true" />
-        <activity android:name=".burn_out"
-            android:exported="true"></activity>
+        <activity android:name=".burn_out"></activity>
+        <activity
+            android:name=".LandingPageActivity"
+            android:label="@string/title_activity_landing_page"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SignedInActivity"
+            android:label="@string/title_activity_signed_in"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ContactUsActivity"
+            android:label="@string/title_activity_contactus"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".LoanActivity"
+            android:label="@string/title_activity_loan"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TrendsActivity"
+            android:label="@string/title_activity_trends"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
