@@ -53,6 +53,11 @@
                 android:layout_marginBottom="8dp"
                 android:visibility="gone" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="99dp"
+                android:orientation="vertical"></LinearLayout>
+
             <ScrollView
                 android:id="@+id/login_form"
                 android:layout_width="match_parent"
@@ -114,12 +119,14 @@
         </LinearLayout>
 
     </android.support.design.widget.CoordinatorLayout>
-  <!--  <android.support.design.widget.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        app:headerLayout="@layout/nav_header_navigation"
-        app:menu="@menu/activity_navigation_drawer" />
--->
+
+
 </android.support.v4.widget.DrawerLayout>
+<!--
+<android.support.design.widget.NavigationView
+android:id="@+id/nav_view"
+android:layout_width="wrap_content"
+android:layout_height="match_parent"
+android:layout_gravity="start"
+app:headerLayout="@layout/nav_header_navigation"
+app:menu="@menu/activity_navigation_drawer" />-->
