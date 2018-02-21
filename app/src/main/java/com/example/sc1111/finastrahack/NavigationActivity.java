@@ -80,11 +80,10 @@ public class NavigationActivity extends AppCompatActivity
             nameText.setText("temp name text");
             emailText.setText("temp email text");
             nav_menu.add(0, Menu.FIRST, Menu.FIRST, "Home").setIcon(R.drawable.ic_menu_home);
-            nav_menu.add(1, Menu.FIRST + 1, Menu.FIRST, "Loans").setIcon(R.drawable.ic_menu_loan);
-            nav_menu.add(2, Menu.FIRST + 2, Menu.FIRST, "Trends").setIcon(R.drawable.ic_menu_trends);
-            nav_menu.add(3, Menu.FIRST + 3, Menu.FIRST, "Contact Us").setIcon(R.drawable.ic_menu_mail);
-            nav_menu.add(4, Menu.FIRST + 4, Menu.FIRST, "Settings").setIcon(R.drawable.ic_menu_settings);
-            nav_menu.add(5, Menu.FIRST + 5, Menu.FIRST, "Sign Out").setIcon(R.drawable.ic_menu_signout);
+            nav_menu.add(1, Menu.FIRST + 1, Menu.FIRST, "Trends").setIcon(R.drawable.ic_menu_trends);
+            nav_menu.add(2, Menu.FIRST + 2, Menu.FIRST, "Contact Us").setIcon(R.drawable.ic_menu_mail);
+            nav_menu.add(3, Menu.FIRST + 3, Menu.FIRST, "Settings").setIcon(R.drawable.ic_menu_settings);
+            nav_menu.add(4, Menu.FIRST + 4, Menu.FIRST, "Sign Out").setIcon(R.drawable.ic_menu_signout);
         }
         else {
             nameText.setText("Login");
@@ -144,34 +143,40 @@ public class NavigationActivity extends AppCompatActivity
         if (isSecured) {
             if (id == nav_menu.getItem(0).getItemId()) {
                 intent = new Intent(NavigationActivity.this, LandingPageActivity.class);
+                navigate();
             } else if (id == nav_menu.getItem(1).getItemId()) {
-                intent = new Intent(NavigationActivity.this, LoanActivity.class);
-            } else if (id == nav_menu.getItem(2).getItemId()) {
                 intent = new Intent(NavigationActivity.this, burn_out.class);
-            } else if (id == nav_menu.getItem(3).getItemId()) {
+                navigate();
+            } else if (id == nav_menu.getItem(2).getItemId()) {
                 intent = new Intent(NavigationActivity.this, ContactUsActivity.class);
-            } else if (id == nav_menu.getItem(4).getItemId()) {
+                navigate();
+            } else if (id == nav_menu.getItem(3).getItemId()) {
                 intent = new Intent(NavigationActivity.this, SettingsActivity.class);
-            }else if (id == nav_menu.getItem(5).getItemId()) {
+                intent.putExtra("userData", userData);
+                startActivity(intent);
+            }else if (id == nav_menu.getItem(4).getItemId()) {
                 //TODO: Replace with better logic
                 intent = new Intent(NavigationActivity.this, IntroActivity.class);
                 userData = null;
+                navigate();
             }
         }
         else {
             if (id == nav_menu.getItem(0).getItemId()) {
                 intent = new Intent(NavigationActivity.this, burn_out.class);
+                navigate();
             } else if (id == nav_menu.getItem(1).getItemId()) {
                 intent = new Intent(NavigationActivity.this, ContactUsActivity.class);
+                navigate();
             } else if (id == nav_menu.getItem(2).getItemId()) {
                 intent = new Intent(NavigationActivity.this, SettingsActivity.class);
+                intent.putExtra("userData", userData);
+                startActivity(intent);
             }
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
-
-        navigate();
         return true;
     }
 
