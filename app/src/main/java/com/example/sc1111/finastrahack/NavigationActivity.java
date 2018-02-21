@@ -1,5 +1,7 @@
 package com.example.sc1111.finastrahack;
 
+import android.content.ClipData;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -14,16 +16,28 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.FrameLayout;
 
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String TAG = "NavigationActivity";
     private UserData userData;
+    public boolean isSecured = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        userData = (UserData) getIntent().getSerializableExtra("userData");
+
+        //TODO: Implement error checking for userData == null
+        if (userData == null){
+            isSecured = false;
+        }
+        else{
+            isSecured = true;
+        }
     }
 
     public void setView(){
@@ -31,10 +45,30 @@ public class NavigationActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.app_name, R.string.app_name) {
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                // Code here will be triggered once the drawer closes as we dont want anything to happen so we leave this blank
+                super.onDrawerClosed(drawerView);
+                InputMethodManager inputMethodManager = (InputMethodManager)
+                        getSystemService(Context.INPUT_METHOD_SERVICE);
+                inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                // Code here will be triggered once the drawer open as we dont want anything to happen so we leave this blank
+                super.onDrawerOpened(drawerView);
+                InputMethodManager inputMethodManager = (InputMethodManager)
+                        getSystemService(Context.INPUT_METHOD_SERVICE);
+                inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+            }
+        };
+
+        drawer.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
