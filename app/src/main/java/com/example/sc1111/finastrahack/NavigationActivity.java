@@ -1,6 +1,5 @@
 package com.example.sc1111.finastrahack;
 
-import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,15 +10,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.FrameLayout;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -36,11 +31,9 @@ public class NavigationActivity extends AppCompatActivity
 
         //TODO: Implement error checking for userData == null
         if (userData == null){
-            Log.i("Nav", "NULL POINTER FOR USER");
             isSecured = false;
         }
         else{
-            Log.i("Nav", userData.toString());
             isSecured = true;
         }
     }
@@ -161,8 +154,7 @@ public class NavigationActivity extends AppCompatActivity
                 intent = new Intent(NavigationActivity.this, SettingsActivity.class);
             }else if (id == nav_menu.getItem(5).getItemId()) {
                 //TODO: Replace with better logic
-                intent = new Intent(NavigationActivity.this, LoginActivity.class);
-                Log.i("NAV", "on signout click");
+                intent = new Intent(NavigationActivity.this, IntroActivity.class);
                 userData = null;
             }
         }
@@ -189,8 +181,8 @@ public class NavigationActivity extends AppCompatActivity
             new CountDownTimer(100, 10) {
                 public void onFinish() {
                     startActivity(intent);
-                    overridePendingTransition(0, 0);
                     finish();
+                    overridePendingTransition(0, 0);
                 }
                 public void onTick(long millisUntilFinished) {
                     // millisUntilFinished    The amount of time until finished.

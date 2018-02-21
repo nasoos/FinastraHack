@@ -1,11 +1,8 @@
-package com.example.sc1111.finastrahack.models;
+package com.example.sc1111.finastrahack;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-import com.example.sc1111.finastrahack.LandingPageActivity;
-import com.example.sc1111.finastrahack.LoginActivity;
 
 public class IntroActivity extends AppCompatActivity {
 
@@ -14,6 +11,7 @@ public class IntroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Intent i = new Intent(IntroActivity.this, LoginActivity.class);
         startActivity(i);
+        finish();
         overridePendingTransition(0,0);
     }
 }

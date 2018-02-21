@@ -410,6 +410,7 @@ public class LoginActivity extends NavigationActivity implements LoaderCallbacks
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                firebaseAuth.signOut();
                 FirebaseUser user = firebaseAuth.getCurrentUser();
 
                 if(user != null){

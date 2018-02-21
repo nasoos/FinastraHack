@@ -18,7 +18,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".LoginActivity"
-            android:label="@string/app_name"
+            android:label="Login"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
@@ -45,7 +45,7 @@
             android:name=".burn_out"
             android:label="@string/title_activity_trends"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".models.IntroActivity">
+        <activity android:name=".IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
