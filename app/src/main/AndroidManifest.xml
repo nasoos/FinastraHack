@@ -29,10 +29,6 @@
             android:label="@string/title_activity_signed_in"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ContactUsActivity"
-            android:label="@string/title_activity_contactus"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".burn_out"
             android:label="@string/title_activity_trends"
             android:theme="@style/AppTheme.NoActionBar" />

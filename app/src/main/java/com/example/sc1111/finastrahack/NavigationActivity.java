@@ -148,8 +148,7 @@ public class NavigationActivity extends AppCompatActivity
                 intent = new Intent(NavigationActivity.this, burn_out.class);
                 navigate();
             } else if (id == nav_menu.getItem(2).getItemId()) {
-                intent = new Intent(NavigationActivity.this, ContactUsActivity.class);
-                navigate();
+                contactUs();
             } else if (id == nav_menu.getItem(3).getItemId()) {
                 intent = new Intent(NavigationActivity.this, SettingsActivity.class);
                 intent.putExtra("userData", userData);
@@ -166,8 +165,7 @@ public class NavigationActivity extends AppCompatActivity
                 intent = new Intent(NavigationActivity.this, burn_out.class);
                 navigate();
             } else if (id == nav_menu.getItem(1).getItemId()) {
-                intent = new Intent(NavigationActivity.this, ContactUsActivity.class);
-                navigate();
+                contactUs();
             } else if (id == nav_menu.getItem(2).getItemId()) {
                 intent = new Intent(NavigationActivity.this, SettingsActivity.class);
                 intent.putExtra("userData", userData);
@@ -194,5 +192,14 @@ public class NavigationActivity extends AppCompatActivity
                 }
             }.start();
         }
+    }
+
+    private void contactUs(){
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("plain/text");
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[] { "emailaddress@domain.com" });
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Subject Line");
+        intent.putExtra(Intent.EXTRA_TEXT, "");
+        startActivity(Intent.createChooser(intent, ""));
     }
 }
