@@ -19,7 +19,7 @@ import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
-public class burn_out extends AppCompatActivity {
+public class burn_out extends NavigationActivity {
 
     Spinner fac_choice;
     String spinnerValue;
@@ -35,9 +35,7 @@ public class burn_out extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_burn_out);
-        if(!FirebaseApp.getApps(this).isEmpty()) {
-            FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-        }
+        setView();
 
         fac_choice = (Spinner) findViewById(R.id.fac_choice);
         DatabaseReference myRef = database.getReference("faculties");
