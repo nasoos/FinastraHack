@@ -15,5 +15,4 @@ public class LoanActivity extends NavigationActivity {
         setContentView(R.layout.activity_loan);
         setView();
     }
-
 }

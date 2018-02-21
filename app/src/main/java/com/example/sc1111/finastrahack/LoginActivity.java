@@ -49,7 +49,7 @@ import static android.Manifest.permission.READ_CONTACTS;
 /**
  * A login screen that offers login via email/password.
  */
-public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
+public class LoginActivity extends NavigationActivity implements LoaderCallbacks<Cursor> {
 
     private static final String TAG = "LoginActivity";
 
@@ -84,6 +84,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        setView();
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
@@ -416,7 +417,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 if(user != null){
                     Log.d(TAG,"onAuthStateChanged: signed_in: " + user.getUid());
 
+                    //TODO: implement userData change upon login from database/Mainframe
+                    UserData userData = new UserData();
+
                     Intent intent = new Intent(LoginActivity.this, LandingPageActivity.class);
+                    intent.putExtra("userData", userData);
                     startActivity(intent);
                     finish();
                 }
