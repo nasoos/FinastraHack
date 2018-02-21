@@ -19,12 +19,7 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".LandingPageActivity"
@@ -50,6 +45,13 @@
             android:name=".burn_out"
             android:label="@string/title_activity_trends"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".models.IntroActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

@@ -11,6 +11,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -35,9 +36,11 @@ public class NavigationActivity extends AppCompatActivity
 
         //TODO: Implement error checking for userData == null
         if (userData == null){
+            Log.i("Nav", "NULL POINTER FOR USER");
             isSecured = false;
         }
         else{
+            Log.i("Nav", userData.toString());
             isSecured = true;
         }
     }
@@ -88,6 +91,7 @@ public class NavigationActivity extends AppCompatActivity
             nav_menu.add(2, Menu.FIRST + 2, Menu.FIRST, "Trends").setIcon(R.drawable.ic_menu_trends);
             nav_menu.add(3, Menu.FIRST + 3, Menu.FIRST, "Contact Us").setIcon(R.drawable.ic_menu_mail);
             nav_menu.add(4, Menu.FIRST + 4, Menu.FIRST, "Settings").setIcon(R.drawable.ic_menu_settings);
+            nav_menu.add(5, Menu.FIRST + 5, Menu.FIRST, "Sign Out").setIcon(R.drawable.ic_menu_signout);
         }
         else {
             nameText.setText("Login");
@@ -155,6 +159,11 @@ public class NavigationActivity extends AppCompatActivity
                 intent = new Intent(NavigationActivity.this, ContactUsActivity.class);
             } else if (id == nav_menu.getItem(4).getItemId()) {
                 intent = new Intent(NavigationActivity.this, SettingsActivity.class);
+            }else if (id == nav_menu.getItem(5).getItemId()) {
+                //TODO: Replace with better logic
+                intent = new Intent(NavigationActivity.this, LoginActivity.class);
+                Log.i("NAV", "on signout click");
+                userData = null;
             }
         }
         else {
@@ -175,6 +184,7 @@ public class NavigationActivity extends AppCompatActivity
     }
 
     public void navigate(){
+        intent.putExtra("userData", userData);
         if (intent != null){
             new CountDownTimer(100, 10) {
                 public void onFinish() {
