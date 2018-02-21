@@ -8,11 +8,15 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
-        
+        classpath 'com.google.gms:google-services:3.2.0' // google-services pluginxs
+        classpath 'com.google.gms:google-services:3.1.1'
 
+<<<<<<< HEAD
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
         classpath 'com.google.gms:google-services:3.1.0'
+=======
+>>>>>>> ed43d580ae5f9226722997c7762820dcbb5a0b29
     }
 }
 
@@ -20,6 +24,9 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven {
+            url "https://maven.google.com" // Google's Maven repository
+        }
     }
 }
 

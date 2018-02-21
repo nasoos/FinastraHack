@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FinastraHack.iml" filepath="$PROJECT_DIR$/FinastraHack.iml" />
-      <module fileurl="file://C:\Users\tw2222\Documents\GitHub\FinastraHack\FinastraHack.iml" filepath="C:\Users\tw2222\Documents\GitHub\FinastraHack\FinastraHack.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
