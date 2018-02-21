@@ -374,7 +374,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
 
             if (success) {
-                finish();
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();
@@ -394,12 +393,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     private void showDialog(){
         if (mProgressBar != null)
-        mProgressBar.setVisibility(View.VISIBLE);
+            mProgressBar.setVisibility(View.VISIBLE);
 
     }
 
     private void hideDialog(){
-        if(mProgressBar.getVisibility() == View.VISIBLE){
+        if(mProgressBar != null && mProgressBar.getVisibility() == View.VISIBLE){
             mProgressBar.setVisibility(View.INVISIBLE);
         }
     }
