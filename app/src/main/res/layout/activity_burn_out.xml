@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.sc1111.finastrahack.burn_out">
+
+    <TextView
+        android:id="@+id/fac_label"
+        android:layout_width="45dp"
+        android:layout_height="19dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="34dp"
+        android:text="Faculty"
+        app:layout_constraintEnd_toStartOf="@+id/fac_choice"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/fac_choice"
+        android:layout_width="272dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/fac_label"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.jjoe64.graphview.GraphView
+        android:id="@+id/graph"
+        android:layout_width="340dp"
+        android:layout_height="258dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="92dp"
+        app:layout_constraintBottom_toTopOf="@+id/years_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fac_choice"
+        app:layout_constraintVertical_bias="0.6" />
+
+    <TextView
+        android:id="@+id/years_label"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:layout_marginBottom="81dp"
+        android:layout_marginEnd="118dp"
+        android:layout_marginStart="112dp"
+        android:text="Years After Graduation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/graph"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/title_graph"
+        android:layout_width="160dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="112dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="67dp"
+        android:text="Loan Payback Burndown"
+        app:layout_constraintBottom_toTopOf="@+id/graph"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fac_choice" />
+
+</android.support.constraint.ConstraintLayout>

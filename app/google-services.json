@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "556813796131",
+    "firebase_url": "https://studentslend.firebaseio.com",
+    "project_id": "studentslend",
+    "storage_bucket": "studentslend.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:556813796131:android:28cbbc4143b58e1a",
+        "android_client_info": {
+          "package_name": "com.example.sc1111.finastrahack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "556813796131-oq04vfsdujqbl253vienngtqsi595g8v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sc1111.finastrahack",
+            "certificate_hash": "fa53fe7feeb1739b5c1a1ebc55c4582ebee94681"
+          }
+        },
+        {
+          "client_id": "556813796131-oirrlsjk0ja2asp196n2dpno9d57smqn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAj68FQzwtdb1vJo7_Xwrpi2HV6KUair44"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "556813796131-oirrlsjk0ja2asp196n2dpno9d57smqn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
