@@ -78,7 +78,7 @@ public class NavigationActivity extends AppCompatActivity
         if (isSecured) {
             //TODO: Replace navbar header text with database variables
             nameText.setText("Jake");
-            emailText.setText("sid@thekid.com");
+            emailText.setText("test@test.com");
             nav_menu.add(0, Menu.FIRST, Menu.FIRST, "Home").setIcon(R.drawable.ic_menu_home);
             nav_menu.add(1, Menu.FIRST + 1, Menu.FIRST, "Trends").setIcon(R.drawable.ic_menu_trends);
             nav_menu.add(2, Menu.FIRST + 2, Menu.FIRST, "Contact Us").setIcon(R.drawable.ic_menu_mail);

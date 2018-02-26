@@ -1,4 +1,5 @@
 package com.example.sc1111.finastrahack;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import com.google.firebase.database.DataSnapshot;
@@ -141,7 +142,17 @@ public class burn_out extends NavigationActivity {
         graph.getViewport().setYAxisBoundsManual(true);
         graph.getViewport().setMaxX(xyValueArray.get(xyValueArray.size()-1).getX());
         graph.getViewport().setMaxY(xyValueArray.get(0).getY());
-
+        xySeries.setColor(getResources().getColor(android.R.color.holo_blue_dark));
+        xySeries.setDrawBackground(true);
+        graph.getGridLabelRenderer().setGridColor(Color.WHITE);
+        graph.setTitleColor(Color.WHITE);
+        graph.getGridLabelRenderer().setHorizontalAxisTitle("Number of Years After Graduation");
+        graph.getGridLabelRenderer().setVerticalAxisTitle("$ Amount");
+        graph.getGridLabelRenderer().setHorizontalLabelsColor(Color.WHITE);
+        graph.getGridLabelRenderer().setVerticalLabelsColor(Color.WHITE);
+        graph.getGridLabelRenderer().setHorizontalAxisTitleColor(Color.WHITE);
+        graph.getGridLabelRenderer().setVerticalAxisTitleColor(Color.WHITE);
+        xySeries.setBackgroundColor(Color.argb(30,50,167,189));
         graph.addSeries(xySeries);
 
 
